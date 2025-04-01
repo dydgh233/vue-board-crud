@@ -11,7 +11,7 @@ const router = useRouter();
 
 const submitPost = async (form) => {
   console.log("폼 데이터", form);
-  await axios.post("http://localhost:5000/api/posts", form);
+  await axios.post(`${import.meta.env.VITE_API_URL}/api/posts`, form);
   alert("등록되었습니다");
   router.push("/board");
 };

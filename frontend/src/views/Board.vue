@@ -49,11 +49,12 @@
     const totalPosts = ref(0);
     const searchTitle = ref("");
     const searchName = ref("");
+
     
     // 조회 API
     const selectList = async (page = 1) => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/posts` ,{
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/posts` ,{
               params:{
                 page,
                 limit: pageSize,

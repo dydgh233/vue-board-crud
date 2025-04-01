@@ -40,39 +40,39 @@
   const userStore = useUserStore()
 
   const googleLogin = () => {
-    window.location.href = "http://localhost:5000/api/auth/google";
+    window.location.href = `${import.meta.env.VITE_API_URL}/api/auth/google`;
   };
 
   const login = async () => {
-  if (!username.value || !password.value) {
-    alert("아이디와 비밀번호를 입력해주세요.");
-    return;
-  }
+    if (!username.value || !password.value) {
+      alert("아이디와 비밀번호를 입력해주세요.");
+      return;
+    }
 
-  try {
-    const response = await axios.post("http://localhost:5000/api/auth/login", {
-      username: username.value,
-      password: password.value,
-    });
+    try {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, {
+        username: username.value,
+        password: password.value,
+      });
 
-    const token = response.data.token;
-    const nickname = response.data.nickname;
+      const token = response.data.token;
+      const nickname = response.data.nickname;
 
-    userStore.login({
-      nickname: nickname,
-      token: token,
-    });
+      userStore.login({
+        nickname: nickname,
+        token: token,
+      });
 
-    // ✅ 로컬스토리지에도 저장
-    localStorage.setItem("token", token);
+      // ✅ 로컬스토리지에도 저장
+      localStorage.setItem("token", token);
 
-    alert("로그인 성공!");
-    router.push("/board");
-  } catch (error) {
-    console.error("로그인 실패", error);
-    alert("로그인 실패. 아이디 또는 비밀번호를 확인하세요.");
-  }
-};
+      alert("로그인 성공!");
+      router.push("/board");
+    } catch (error) {
+      console.error("로그인 실패", error);
+      alert("로그인 실패. 아이디 또는 비밀번호를 확인하세요.");
+    }
+  };
 
   </script>
   

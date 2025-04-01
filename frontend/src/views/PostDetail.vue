@@ -53,7 +53,7 @@
   
   const detailPost = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/posts/${route.params.id}`);
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/posts/${route.params.id}`);
       post.value = response.data;
     } catch (error) {
       console.error("게시글을 불러오는 중 오류 발생", error);
@@ -62,7 +62,7 @@
 
   const updatePost = async () => {
     try {
-      const response = await axios.put(`http://localhost:5000/api/posts/${route.params.id}`);
+      const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/posts/${route.params.id}`);
       post.value = response.data;
       goUpdate()
     } catch (error) {
@@ -72,7 +72,7 @@
 
   const deletePost = async () => {
     try {
-      const response = await axios.delete(`http://localhost:5000/api/posts/${route.params.id}`);
+      const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/posts/${route.params.id}`);
       goBack()
     } catch (error) {
       console.error("게시글을 불러오는 중 오류 발생", error);
@@ -87,7 +87,7 @@
 
     try {
       const response = await axios.post(
-        `http://localhost:5000/api/posts/${route.params.id}/comments`,
+        `${import.meta.env.VITE_API_URL}/api/posts/${route.params.id}/comments`,
         commentForm.value
       );
       post.value.comments = response.data.comments; // 최신 댓글 목록 반영
