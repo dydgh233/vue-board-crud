@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors({
   origin: [
     "http://localhost:5173", // 로컬 개발용 (Vite 기본 포트)
-    "https://vue-board-crud.vercel.app", // 배포된 프론트 주소
+    "https://vue-board-crud.vercel.app" // 배포된 프론트 주소
   ],
   credentials: true, // 필요시 쿠키 등 인증정보 포함
 }));
