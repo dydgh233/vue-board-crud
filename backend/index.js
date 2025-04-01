@@ -10,7 +10,14 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // 🔧 미들웨어 설정
-app.use(cors());
+// 👉 수정된 코드 (프론트 도메인을 명시적으로 허용)
+app.use(cors({
+  origin: [
+    "http://localhost:5173", // 로컬 개발용 (Vite 기본 포트)
+    "https://vue-board-crud.vercel.app", // 배포된 프론트 주소
+  ],
+  credentials: true, // 필요시 쿠키 등 인증정보 포함
+}));
 app.use(express.json());
 
 // 🔐 세션 설정 (Passport 전에 등록 필수)
