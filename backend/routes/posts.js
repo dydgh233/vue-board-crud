@@ -1,12 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const Post = require("../models/Post");
+const Post = require("../models/post");
 
 // 📌 게시글 목록 조회
 router.get("/", async (req, res) => {
     try {
       const { page = 1, limit = 10, title = "", name = "" } = req.query;
-  console.log("req.query", req.query)
       const query = {
         title: { $regex: title, $options: "i" }, // 대소문자 구분 없이 부분 검색
         name: { $regex: name, $options: "i" },
