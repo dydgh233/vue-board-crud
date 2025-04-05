@@ -14,7 +14,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,       // .env에 설정한 Client ID
       clientSecret: process.env.GOOGLE_CLIENT_SECRET, // .env에 설정한 Client Secret
-      callbackURL: "/api/auth/google/callback",
+      callbackURL: process.env.GOOGLE_CALLBACK_URL,
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
@@ -74,7 +74,7 @@ router.get(
     );
     // 여기서 토큰을 클라이언트로 전달하거나, 프론트엔드 URL로 리다이렉트하면서 전달할 수 있음.
     // 예를 들어, 프론트엔드 URL로 리다이렉트하면서 쿼리 파라미터로 토큰 전달:
-    res.redirect(`http://vue-board-crud.vercel.app/oauth-callback?token=${token}&nickname=${encodeURIComponent(req.user.nickname)}`);
+    res.redirect(`https://vue-board-crud.vercel.app/oauth-callback?token=${token}&nickname=${encodeURIComponent(req.user.nickname)}`);
 
   }
 );
