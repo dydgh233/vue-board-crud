@@ -3,6 +3,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const session = require("express-session");
 const passport = require("passport");
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
 require("dotenv").config();
 
 // 앱 초기화
@@ -44,6 +46,9 @@ mongoose.connect(process.env.MONGO_URI, {
 // 📦 라우터 연결
 app.use("/api/posts", require("./routes/posts"));   // 게시판 라우터
 app.use("/api/auth", require("./routes/auth"));     // 인증 라우터 (로그인/회원가입 등)
+
+// 스웨거 
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // 🚀 서버 시작
 app.listen(PORT, () => {

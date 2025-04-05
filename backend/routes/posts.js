@@ -2,7 +2,15 @@ const express = require("express");
 const router = express.Router();
 const Post = require("../models/post");
 
-// 📌 게시글 목록 조회
+/**
+ * @swagger
+ * /api/posts:
+ *   get:
+ *     summary: 게시글 전체 조회
+ *     responses:
+ *       200:
+ *         description: 게시글 목록
+ */
 router.get("/", async (req, res) => {
     try {
       const { page = 1, limit = 10, title = "", name = "" } = req.query;
@@ -24,10 +32,17 @@ router.get("/", async (req, res) => {
   });
   
 
-// 📌 게시글 작성
+/**
+ * @swagger
+ * /api/posts:
+ *   post:
+ *     summary: 게시글 작성
+ *     responses:
+ *       200:
+ *         description: 작성 하면 파라미터가 뭐가나오는지 확인할려고 스웨거 써봄봄
+ */
 router.post("/", async (req, res) => {
     const newPost = new Post(req.body);
-    console.log("newPost", newPost)
     await newPost.save();
     res.json({ message: "게시글이 등록되었습니다!", post: newPost });
 });
