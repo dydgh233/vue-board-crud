@@ -1,4 +1,3 @@
-<!-- src/views/OauthCallback.vue -->
 <template>
     <div class="oauth-callback">
       <p>🔐 로그인 처리 중입니다...</p>
@@ -17,8 +16,9 @@
   onMounted(() => {
     const token = route.query.token
     const nickname = route.query.nickname
-  
     if (token && nickname) {
+      console.log("token",token)
+      console.log("nickname",nickname)
       userStore.login({ token, nickname }) // ✅ 로그인 처리
       router.push('/board') // ✅ 게시판 페이지로 이동
     } else {
