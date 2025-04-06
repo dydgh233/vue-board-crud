@@ -75,7 +75,6 @@ router.get(
     // 여기서 토큰을 클라이언트로 전달하거나, 프론트엔드 URL로 리다이렉트하면서 전달할 수 있음.
     // 예를 들어, 프론트엔드 URL로 리다이렉트하면서 쿼리 파라미터로 토큰 전달:
     res.redirect(`https://vue-board-crud.vercel.app/oauth-callback?token=${token}&nickname=${encodeURIComponent(req.user.nickname)}`);
-
   }
 );
 
