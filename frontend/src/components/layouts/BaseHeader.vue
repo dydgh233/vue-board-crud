@@ -6,8 +6,6 @@ import { useUserStore } from '~/stores/userStore'
 
 const userStore = useUserStore()
 const router = useRouter()
-
-console.log("userStore", userStore)
 const logout = () => {
   userStore.logout()
   router.push('/login') // 로그아웃 후 로그인 페이지로 이동
@@ -19,7 +17,7 @@ const logout = () => {
     <el-menu-item index="/">
       <div class="flex items-center justify-center gap-2">
         <div class="text-xl" i-ep-element-plus />
-        <span>용호 포트폴리오</span>
+        <span>용호 포트폴리오 (게시판CRUD)</span>
       </div>
     </el-menu-item>
     <el-menu-item>
@@ -31,13 +29,6 @@ const logout = () => {
         <RouterLink to="/login">로그인</RouterLink>
       </div>
     </el-menu-item>
-    <el-menu-item index="3" disabled>
-      Info
-    </el-menu-item>
-    <el-menu-item index="4">
-      Orders
-    </el-menu-item>
-
     <el-menu-item h="full" @click="toggleDark()">
       <button
         class="w-full cursor-pointer border-none bg-transparent"

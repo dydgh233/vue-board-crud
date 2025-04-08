@@ -1,13 +1,12 @@
 {
-  "name": "element-plus-vite-starter",
+  "name": "용호 포트폴리오 vue + node.js + mongoDB 게시판",
   "type": "module",
   "version": "0.1.0",
   "private": true,
   "packageManager": "pnpm@9.15.0",
   "license": "MIT",
-  "homepage": "https://vite-starter.element-plus.org",
   "repository": {
-    "url": "https://github.com/element-plus/element-plus-vite-starter"
+    "url": "https://github.com/dydgh233/vue-board-crud"
   },
   "scripts": {
     "dev": "vite",

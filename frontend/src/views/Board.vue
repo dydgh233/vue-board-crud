@@ -1,6 +1,6 @@
 <template>
     <div class="board-container">
-      <h1 class="board-title">📌 게시판 목록</h1>
+      <h1 class="board-title">게시판 목록</h1>
       <div class="board-search">
         <ElInput v-model="searchTitle" placeholder="제목 검색" class="search-input" @keyup.enter="selectList"/>
         <ElInput v-model="searchName" placeholder="작성자 검색" class="search-input" @keyup.enter="selectList"/>
